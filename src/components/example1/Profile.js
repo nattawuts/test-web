@@ -59,7 +59,6 @@ const Profile = ({ profileData = {} }) => {
       setPosition(employee?.posId);
       setImage(employee?.empImage);
       setEmpStatus(employee?.empStatus);
-      setEmpBirthday(employee?.empBirthday);
     }
   }, [employee]);
   const handleMobileChange = e => {
@@ -225,7 +224,7 @@ const Profile = ({ profileData = {} }) => {
               <DatePicker
                 placeholder="วัน/เดือน/ปีเกิด"
                 disabled={!editMode}
-                value={empBirthday}
+                value={employee?.empBirthday}
                 handleValue={setEmpBirthday}
               />
             </div>

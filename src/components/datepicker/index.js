@@ -8,16 +8,19 @@ import "react-day-picker/dist/style.css";
 const DatePicker = ({
   placeholder = "",
   disabled = false,
-  value = "",
+  value,
   handleValue = () => {},
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
-  const [dateText, setDateText] = useState("");
+  const [dateText, setDateText] = useState(value);
 
   useEffect(() => {
-    setDateText(value);
-  }, []);
+    if (value) {
+      console.log("value", value);
+      setDateText(value);
+    }
+  }, [value]);
 
   useEffect(() => {
     handleValue(dateText);
